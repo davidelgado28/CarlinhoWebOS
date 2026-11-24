@@ -19,8 +19,8 @@ export function renderMusic(): HTMLElement {
   const volume = root.querySelector<HTMLInputElement>(".music-volume input")!;
   const draw = () => {
     const track = audioService.current;
-    root.querySelector<HTMLElement>(".track-title")!.textContent = track?.name.replace(/\.[^.]+$/, "") ?? "Sua trilha começa aqui";
-    root.querySelector<HTMLElement>(".track-subtitle")!.textContent = track ? "Arquivo local · sua biblioteca" : "Adicione um arquivo de música";
+    root.querySelector<HTMLElement>(".track-title")!.textContent = track?.name ?? "Sua trilha começa aqui";
+    root.querySelector<HTMLElement>(".track-subtitle")!.textContent = track?.artist ?? "Adicione um arquivo de música";
     root.querySelector<HTMLElement>(".elapsed")!.textContent = formatTime(audioService.element.currentTime);
     root.querySelector<HTMLElement>(".duration")!.textContent = formatTime(audioService.element.duration);
     seek.max = String(audioService.element.duration || 100);
@@ -30,7 +30,19 @@ export function renderMusic(): HTMLElement {
     playlist.replaceChildren(...audioService.tracks.map((item, index) => {
       const button = document.createElement("button");
       button.className = `track-row${index === audioService.currentIndex ? " selected" : ""}`;
-      button.innerHTML = `<span class="track-index">${index + 1}</span><span>${item.name.replace(/[&<>"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]!)}</span><span>♪</span>`;
+      const number = document.createElement("span");
+      number.className = "track-index";
+      number.textContent = String(index + 1).padStart(2, "0");
+      const info = document.createElement("span");
+      info.className = "track-info";
+      const title = document.createElement("strong");
+      title.textContent = item.name;
+      const artist = document.createElement("small");
+      artist.textContent = item.artist ?? "Sua biblioteca";
+      info.append(title, artist);
+      const icon = document.createElement("span");
+      icon.textContent = "♪";
+      button.append(number, info, icon);
       button.addEventListener("click", () => audioService.select(index));
       return button;
     }));
