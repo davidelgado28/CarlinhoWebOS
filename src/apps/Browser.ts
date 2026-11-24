@@ -15,7 +15,7 @@ export function renderBrowser(): HTMLElement {
     <button type="button" data-nav="reload" title="Recarregar">↻</button><button type="button" data-nav="home" title="Início">⌂</button>
     <input class="address" aria-label="Endereço" placeholder="Pesquise ou digite um endereço" />
     <button class="go-button" type="submit">Ir</button>
-  </form><div class="browser-stage"><iframe title="Navegador" sandbox="allow-scripts allow-forms allow-popups"></iframe>
+  </form><div class="browser-stage"><iframe title="Carlinho-Browser" sandbox="allow-scripts allow-forms allow-popups"></iframe>
   <div class="browser-fallback" hidden><div class="fallback-icon">↗</div><h3>Não consegue visualizar este site?</h3>
   <p>Alguns sites bloqueiam a visualização incorporada. Você pode continuar em uma nova aba.</p>
   <a target="_blank" rel="noopener noreferrer">Abrir em nova aba ↗</a></div></div>`;

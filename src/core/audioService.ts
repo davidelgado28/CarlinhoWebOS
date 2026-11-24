@@ -10,11 +10,14 @@ export interface Track {
 
 type Listener = () => void;
 
+const publicTrack = (filename: string): string =>
+  new URL(`music/${filename}`, document.baseURI).toString();
+
 const bundledTracks: Track[] = [
-  { name: "Empathy", artist: "Bassnectar", url: "/music/bassnectar-empathy.mp3" },
-  { name: "It's My Life", artist: "Bon Jovi", url: "/music/bon-jovi-its-my-life.mp3" },
-  { name: "Alors on danse", artist: "Stromae", url: "/music/stromae-alors-on-danse.mp3" },
-  { name: "Ride It (LOVEIN Remix)", artist: "Jay Sean", url: "/music/jay-sean-ride-it-lovein-remix.mp3" },
+  { name: "Empathy", artist: "Bassnectar", url: publicTrack("bassnectar-empathy.mp3") },
+  { name: "It's My Life", artist: "Bon Jovi", url: publicTrack("bon-jovi-its-my-life.mp3") },
+  { name: "Alors on danse", artist: "Stromae", url: publicTrack("stromae-alors-on-danse.mp3") },
+  { name: "Ride It (LOVEIN Remix)", artist: "Jay Sean", url: publicTrack("jay-sean-ride-it-lovein-remix.mp3") },
 ];
 
 class AudioService {

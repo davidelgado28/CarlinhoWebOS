@@ -13,10 +13,10 @@ npm run dev
 
 ## Aplicativos
 
-- **Bloco de Notas:** abre arquivos locais de texto e salva notas no VFS do navegador.
+- **notes:** abre arquivos locais de texto e salva notas no VFS do navegador.
 - **Terminal:** inclui comandos básicos e carrega Pyodide em um Web Worker somente quando `python` é usado. O runtime é baixado do CDN oficial na primeira execução.
-- **Navegador:** exibe páginas em iframe isolado; sites que bloqueiam incorporação podem ser abertos em uma nova aba.
-- **Player de Música:** inclui quatro faixas pré-carregadas e reproduz músicas adicionadas localmente; o áudio continua ativo independente da janela do player.
+- **Carlinho-Browser:** exibe páginas em iframe isolado; sites que bloqueiam incorporação podem ser abertos em uma nova aba.
+- **Carlinho Músicas:** inclui quatro faixas pré-carregadas e reproduz músicas adicionadas localmente; o áudio continua ativo independente da janela do player.
 
 Arquivos de texto do VFS ficam no `localStorage` e faixas de áudio no `IndexedDB` deste navegador; nada é enviado a um servidor. O espaço disponível depende das cotas do navegador.
 
