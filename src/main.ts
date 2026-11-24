@@ -12,10 +12,10 @@ app.innerHTML = `
   <main class="desktop">
     <div class="desktop-shade"></div>
     <div class="desktop-icons">
-      <button data-open="notepad"><span>📝</span><small>Notas</small></button>
+      <button data-open="notepad"><span>📝</span><small>notes</small></button>
       <button data-open="terminal"><span>⌘</span><small>Terminal</small></button>
-      <button data-open="browser"><span>🌐</span><small>Navegador</small></button>
-      <button data-open="music"><span>♫</span><small>Música</small></button>
+      <button data-open="browser"><span>🌐</span><small>Carlinho-Browser</small></button>
+      <button data-open="music"><span>♫</span><small>Carlinho Músicas</small></button>
     </div>
     <div class="workspace" aria-label="Área de trabalho"></div>
     <footer class="taskbar glass">
@@ -42,10 +42,10 @@ const workspace = app.querySelector<HTMLElement>(".workspace")!;
 const taskbarApps = app.querySelector<HTMLElement>(".taskbar-apps")!;
 const manager = new WindowManager(workspace, taskbarApps);
 const applications: AppDefinition[] = [
-  { id: "notepad", title: "Bloco de Notas", icon: "📝", render: renderNotepad },
+  { id: "notepad", title: "notes", icon: "📝", render: renderNotepad },
   { id: "terminal", title: "Terminal", icon: "⌘", render: renderTerminal },
-  { id: "browser", title: "Navegador", icon: "🌐", render: renderBrowser },
-  { id: "music", title: "Player de Música", icon: "♫", render: renderMusic },
+  { id: "browser", title: "Carlinho-Browser", icon: "🌐", render: renderBrowser },
+  { id: "music", title: "Carlinho Músicas", icon: "♫", render: renderMusic },
 ];
 const openApp = (id: string) => {
   const appDefinition = applications.find((item) => item.id === id);
