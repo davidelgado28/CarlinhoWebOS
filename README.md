@@ -2,15 +2,6 @@
 
 Um desktop web estático, client-side e em português, criado com TypeScript e Vite.
 
-## Desenvolvimento
-
-```sh
-npm install
-npm run dev
-```
-
-`npm run build` executa a verificação de tipos e gera o site em `dist/`. O diretório `dist/` pode ser hospedado em GitHub Pages ou Cloudflare Pages. Não há servidor de aplicação.
-
 ## Aplicativos
 
 - **notes:** abre arquivos locais de texto e salva notas no VFS do navegador.
