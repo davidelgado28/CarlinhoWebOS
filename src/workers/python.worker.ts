@@ -1,5 +1,3 @@
-/// <reference lib="webworker" />
-
 let pyodide: { runPythonAsync: (code: string) => Promise<unknown>; setStdout: (options: { batched: (text: string) => void }) => void } | undefined;
 
 self.onmessage = async (event: MessageEvent<{ type: "init" | "run"; code?: string }>) => {
