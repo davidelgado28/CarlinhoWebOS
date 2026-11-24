@@ -4,12 +4,6 @@
   background: #0d0d10;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --glass: rgba(20, 20, 24, .72);
-  --glass-strong: rgba(17, 17, 21, .92);
-  --line: rgba(255, 255, 255, .1);
-  --muted: #8d8d96;
-  --red: #e60000;
-  --red-glow: rgba(230, 0, 0, .3);
 }
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 700px; min-height: 500px; overflow: hidden; }
@@ -20,7 +14,7 @@ button { color: inherit; }
   background: url("/wallpaper.png") center/cover no-repeat fixed;
 }
 .desktop-shade { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(0,0,0,.13),transparent 30%,rgba(0,0,0,.15)); pointer-events:none; }
-.glass { background: var(--glass); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border: 1px solid var(--line); border-radius: 12px; }
+.glass { background: rgba(20, 20, 24, .72); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border: 1px solid rgba(255, 255, 255, .1); border-radius: 12px; }
 .desktop-icons { position:absolute; z-index:1; top:24px; left:22px; display:grid; gap:9px; }
 .desktop-icons button { display:grid; justify-items:center; gap:5px; width:72px; padding:9px 5px; border:1px solid transparent; border-radius:10px; background:transparent; cursor:pointer; text-shadow:0 1px 5px #000; }
 .desktop-icons button:hover { background:#ffffff15; border-color:#ffffff20; }
@@ -29,17 +23,17 @@ button { color: inherit; }
 .workspace { position:absolute; inset:0 0 76px; }
 .taskbar { position:absolute; z-index:10000; left:50%; bottom:14px; transform:translateX(-50%); height:58px; min-width:min(920px,calc(100vw - 32px)); padding:7px 10px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; box-shadow:0 12px 44px #0008; }
 .taskbar-start { position:relative; justify-self:start; }
-.start-button { display:grid; place-items:center; width:40px;height:40px;border:0;border-radius:50%;background:var(--red);box-shadow:0 0 22px var(--red-glow);cursor:pointer;transition:transform .18s,box-shadow .18s; }
+.start-button { display:grid; place-items:center; width:40px;height:40px;border:0;border-radius:50%;background:#e60000;box-shadow:0 0 22px rgba(230, 0, 0, .3);cursor:pointer;transition:transform .18s,box-shadow .18s; }
 .start-button:hover { transform:scale(1.07);box-shadow:0 0 28px #e6000066; }
 .start-button span { font:700 22px "Space Grotesk",sans-serif; }
 .start-menu { position:absolute; bottom:54px; left:0; width:320px; padding:18px; box-shadow:0 20px 60px #0009; }
-.start-greeting { display:grid;gap:4px;margin:0 0 16px; }.start-greeting strong{font:600 19px "Segoe UI",sans-serif}.start-greeting span,.start-footer span:last-child{font-size:12px;color:var(--muted)}
-.start-search { height:38px;display:flex;align-items:center;gap:10px;padding:0 12px;margin-bottom:18px;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:13px}
-.start-label,.eyebrow {font-size:9px;letter-spacing:1.6px;color:var(--muted);font-weight:700}
+.start-greeting { display:grid;gap:4px;margin:0 0 16px; }.start-greeting strong{font:600 19px "Segoe UI",sans-serif}.start-greeting span,.start-footer span:last-child{font-size:12px;color:#8d8d96}
+.start-search { height:38px;display:flex;align-items:center;gap:10px;padding:0 12px;margin-bottom:18px;border:1px solid rgba(255, 255, 255, .1);border-radius:8px;color:#8d8d96;font-size:13px}
+.start-label,.eyebrow {font-size:9px;letter-spacing:1.6px;color:#8d8d96;font-weight:700}
 .start-pinned {display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 18px}
 .start-pinned button {display:grid;justify-items:center;gap:7px;padding:10px 3px;border:0;border-radius:9px;background:transparent;cursor:pointer}
 .start-pinned button:hover{background:#ffffff12}.start-pinned button span{font-size:23px}.start-pinned small{font-size:10px}
-.start-footer{display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line);font-size:12px}
+.start-footer{display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid rgba(255, 255, 255, .1);font-size:12px}
 .taskbar-apps { display:flex;align-items:center;gap:5px; }
 .taskbar-app,.taskbar-status button { position:relative;border:0;background:transparent;cursor:pointer;border-radius:9px; }
 .taskbar-app { width:42px;height:40px;font-size:20px; }
@@ -47,8 +41,8 @@ button { color: inherit; }
 .taskbar-status { justify-self:end;display:flex;align-items:center;gap:12px;height:100%; }
 .mini-player { display:flex;align-items:center;gap:9px;height:38px;padding:0 10px;max-width:180px;font-size:11px; }
 .mini-player:hover{background:#ffffff12}.mini-play{color:#ff4949;font-size:10px}.mini-track{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:102px}.mini-player span:last-child{color:#f35}
-.status-divider {height:24px;width:1px;background:var(--line)}.system-status{display:flex;gap:9px;color:#ddd;font-size:13px}.clock{display:grid;text-align:right;padding:0 5px!important;font-size:10px!important;gap:2px!important}.clock strong{font-size:12px}
-.window {position:absolute;left:100px;top:80px;width:min(760px,calc(100vw - 48px));height:min(520px,calc(100% - 24px));min-width:360px;min-height:260px;overflow:hidden;display:flex;flex-direction:column;background:rgba(20,20,24,.88);backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--line);border-radius:12px;box-shadow:0 24px 80px #0008;animation:window-in .2s ease-out;}
+.status-divider {height:24px;width:1px;background:rgba(255, 255, 255, .1)}.system-status{display:flex;gap:9px;color:#ddd;font-size:13px}.clock{display:grid;text-align:right;padding:0 5px!important;font-size:10px!important;gap:2px!important}.clock strong{font-size:12px}
+.window {position:absolute;left:100px;top:80px;width:min(760px,calc(100vw - 48px));height:min(520px,calc(100% - 24px));min-width:360px;min-height:260px;overflow:hidden;display:flex;flex-direction:column;background:rgba(20,20,24,.88);backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255, 255, 255, .1);border-radius:12px;box-shadow:0 24px 80px #0008;animation:window-in .2s ease-out;}
 .window.active{border-color:rgba(230,0,0,.28);box-shadow:0 24px 80px #0009,0 0 0 1px rgba(230,0,0,.1)}.window.maximized{inset:10px 10px 82px!important;width:auto!important;height:auto!important}
 @keyframes window-in{from{opacity:0;scale:.98}to{opacity:1;scale:1}}
 .window-titlebar{height:44px;min-height:44px;display:flex;justify-content:space-between;align-items:center;padding:0 9px 0 14px;border-bottom:1px solid #ffffff0d;cursor:grab;user-select:none;touch-action:none}
@@ -58,20 +52,20 @@ button { color: inherit; }
 .app-fill{height:100%;min-height:0}.hidden-input{display:none}
 .notepad{display:flex;flex-direction:column}.notepad-menu{height:38px;display:flex;align-items:center;gap:5px;padding:0 12px;border-bottom:1px solid #ffffff0b}
 .notepad-menu button{border:0;background:transparent;padding:6px 9px;border-radius:6px;font-size:11px;color:#ccc;cursor:pointer}.notepad-menu button:hover{background:#ffffff12;color:white}
-.file-label{margin-left:auto;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:10px}
+.file-label{margin-left:auto;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#8d8d96;font-size:10px}
 .notepad textarea{flex:1;width:100%;resize:none;padding:20px 23px;border:0;outline:0;background:transparent;color:#e6e6e9;font:13px/1.8 "Cascadia Code",Consolas,monospace}
 .terminal{display:flex;flex-direction:column;background:rgba(7,8,10,.88);padding:17px 19px;font:12px/1.7 "Cascadia Code",Consolas,monospace}
 .terminal-output{flex:1;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}.terminal-line{min-height:1.7em}.terminal-line.command{color:#fff}.terminal-line.muted{color:#85858f}.terminal-line.error{color:#ff7777}
 .terminal-form{display:flex;gap:9px;align-items:center;margin-top:8px;color:#ff5656}.terminal-path{color:#8f8f98}.prompt-mark{font-size:17px}.terminal-form input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#fff;font:inherit}
 .browser{display:flex;flex-direction:column}.browser-toolbar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid #ffffff0b}.browser-toolbar button{width:31px;height:31px;border:0;border-radius:8px;background:transparent;color:#bbb;cursor:pointer;font-size:18px}.browser-toolbar button:hover{background:#ffffff12;color:#fff}.browser-toolbar .address{flex:1;min-width:0;height:32px;padding:0 13px;border:1px solid #ffffff14;border-radius:20px;outline:0;background:#0003;color:white;font-size:11px}.browser-toolbar .address:focus{border-color:#e6000066}.browser-toolbar .go-button{font-size:11px}
-.browser-stage{position:relative;flex:1;min-height:0;background:#101014}.browser-stage iframe{border:0;width:100%;height:100%;background:#101014}.browser-fallback{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;width:min(560px,calc(100% - 24px));padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:rgba(17,17,21,.94);backdrop-filter:blur(16px);box-shadow:0 8px 26px #0008}.browser-fallback[hidden]{display:none}.fallback-icon{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:11px;background:#e6000022;color:#ff5656;font-size:20px}.browser-fallback h3{margin:0 0 4px;font-size:12px}.browser-fallback p{margin:0;max-width:310px;color:var(--muted);font-size:10px;line-height:1.45}.browser-fallback a{flex:none;padding:9px 10px;border-radius:8px;background:#e60000;color:#fff;text-decoration:none;font-size:10px;white-space:nowrap}
+.browser-stage{position:relative;flex:1;min-height:0;background:#101014}.browser-stage iframe{border:0;width:100%;height:100%;background:#101014}.browser-fallback{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;width:min(560px,calc(100% - 24px));padding:12px 14px;border:1px solid rgba(255, 255, 255, .1);border-radius:11px;background:rgba(17,17,21,.94);backdrop-filter:blur(16px);box-shadow:0 8px 26px #0008}.browser-fallback[hidden]{display:none}.fallback-icon{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:11px;background:#e6000022;color:#ff5656;font-size:20px}.browser-fallback h3{margin:0 0 4px;font-size:12px}.browser-fallback p{margin:0;max-width:310px;color:#8d8d96;font-size:10px;line-height:1.45}.browser-fallback a{flex:none;padding:9px 10px;border-radius:8px;background:#e60000;color:#fff;text-decoration:none;font-size:10px;white-space:nowrap}
 .music-player{display:flex;flex-direction:column;align-items:center;overflow:auto;padding:21px 26px 15px}.music-art{position:relative;display:grid;place-items:center;flex:none;width:130px;height:130px;margin:1px 0 16px;overflow:hidden;border:1px solid #ffffff18;border-radius:17px;background:radial-gradient(circle at 50% 45%,#580b12,#1b1014 65%,#101013);box-shadow:0 12px 34px #0008}.music-art span{z-index:1;color:#ff3838;font-size:52px;text-shadow:0 0 26px #e6000088}.music-art i{position:absolute;bottom:0;width:2px;height:40%;background:#ff313155;transform:rotate(22deg)}
 .music-art i:nth-child(2){left:32%}.music-art i:nth-child(3){left:56%;height:65%}.music-art i:nth-child(4){left:74%;height:50%}
-.music-now{display:grid;justify-items:center;gap:5px}.music-now strong{font:600 16px "Space Grotesk";max-width:380px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.music-now>span:last-child{font-size:11px;color:var(--muted)}
-.music-progress{width:min(440px,100%);display:flex;align-items:center;gap:10px;margin:15px 0 9px;color:var(--muted);font-size:10px}.music-progress input,.music-volume input{flex:1;accent-color:#e60000;height:4px}
+.music-now{display:grid;justify-items:center;gap:5px}.music-now strong{font:600 16px "Space Grotesk";max-width:380px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.music-now>span:last-child{font-size:11px;color:#8d8d96}
+.music-progress{width:min(440px,100%);display:flex;align-items:center;gap:10px;margin:15px 0 9px;color:#8d8d96;font-size:10px}.music-progress input,.music-volume input{flex:1;accent-color:#e60000;height:4px}
 .music-controls{display:flex;align-items:center;gap:22px}.music-controls button{border:0;background:transparent;color:#eee;font-size:16px;cursor:pointer}.music-controls .play-button{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#e60000;font-size:13px;box-shadow:0 0 20px #e6000040}.music-volume{width:min(210px,80%);display:flex;align-items:center;gap:10px;margin:9px 0 15px;color:#aaa}
-.playlist-heading{width:min(520px,100%);display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--line);font-size:9px;letter-spacing:1.4px;color:var(--muted);font-weight:700}
-.upload-button{padding:7px 10px;border:1px solid var(--line);border-radius:7px;color:#ddd;font-size:10px;letter-spacing:0;cursor:pointer}.upload-button:hover{background:#ffffff12}.upload-button input{display:none}
-.playlist{width:min(520px,100%);overflow:auto}.track-row{width:100%;display:grid;grid-template-columns:28px 1fr 22px;align-items:center;text-align:left;gap:8px;padding:9px 10px;border:0;border-radius:7px;background:transparent;color:#d7d7dc;font-size:11px;cursor:pointer}.track-row:hover,.track-row.selected{background:#ffffff0d}.track-row.selected{color:#ff6b6b}.track-index{color:#777;font-variant-numeric:tabular-nums}.track-info{display:grid;gap:3px;overflow:hidden}.track-info strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;font-weight:500}.track-info small{color:var(--muted);font-size:9px}
-.notification{position:absolute;right:22px;top:20px;z-index:11000;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--glass-strong);backdrop-filter:blur(18px);font-size:12px;box-shadow:0 12px 32px #0006;animation:window-in .18s ease-out}.notification[hidden]{display:none}
+.playlist-heading{width:min(520px,100%);display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid rgba(255, 255, 255, .1);font-size:9px;letter-spacing:1.4px;color:#8d8d96;font-weight:700}
+.upload-button{padding:7px 10px;border:1px solid rgba(255, 255, 255, .1);border-radius:7px;color:#ddd;font-size:10px;letter-spacing:0;cursor:pointer}.upload-button:hover{background:#ffffff12}.upload-button input{display:none}
+.playlist{width:min(520px,100%);overflow:auto}.track-row{width:100%;display:grid;grid-template-columns:28px 1fr 22px;align-items:center;text-align:left;gap:8px;padding:9px 10px;border:0;border-radius:7px;background:transparent;color:#d7d7dc;font-size:11px;cursor:pointer}.track-row:hover,.track-row.selected{background:#ffffff0d}.track-row.selected{color:#ff6b6b}.track-index{color:#777;font-variant-numeric:tabular-nums}.track-info{display:grid;gap:3px;overflow:hidden}.track-info strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;font-weight:500}.track-info small{color:#8d8d96;font-size:9px}
+.notification{position:absolute;right:22px;top:20px;z-index:11000;padding:12px 16px;border:1px solid rgba(255, 255, 255, .1);border-radius:10px;background:rgba(17, 17, 21, .92);backdrop-filter:blur(18px);font-size:12px;box-shadow:0 12px 32px #0006;animation:window-in .18s ease-out}.notification[hidden]{display:none}
 @media(max-width:720px){body{min-width:360px}.taskbar{min-width:calc(100vw - 20px);grid-template-columns:auto 1fr auto}.taskbar-status{gap:7px}.system-status,.mini-track{display:none}.taskbar-apps{justify-self:center}.desktop-icons{top:12px;left:10px}.window{left:10px!important;top:12px!important;width:calc(100vw - 20px)!important;height:calc(100% - 20px)!important}.window.maximized{inset:5px 5px 76px!important}}
